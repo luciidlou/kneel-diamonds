@@ -1,5 +1,6 @@
-import { getTypes } from "./database.js"
+import { getOrderBuilder, getTypes } from "./database.js"
 import { setType } from "./database.js"
+const orderBuilder = getOrderBuilder()
 const types = getTypes()
 
 document.addEventListener(
@@ -16,9 +17,15 @@ export const JewelryTypes = () => {
 
     // Use .map() for converting objects to <li> elements
     const listItems = types.map(type => {
-        return `<li>
-            <input type="radio" name="type" value="${type.id}" /> ${type.type}
-        </li>`
+        if (orderBuilder.typeId === type.id) {
+            return `<li>
+                <input type="radio" name="type" value="${type.id}" checked="checked" /> ${type.type}
+            </li>`
+        } else {
+            return `<li>
+                <input type="radio" name="type" value="${type.id}" /> ${type.type}
+            </li>`
+        }
     })
 
 

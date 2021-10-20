@@ -32,11 +32,11 @@ const buildOrderListItem = (order) => {
     )
     const initialCost = (foundMetal.price + foundSize.price + foundStyle.price)
     const totalCost = initialCost * foundType.price
-    
-    
+
+
     const costString = totalCost.toLocaleString("en-US", {
-    style: "currency",
-    currency: "USD"
+        style: "currency",
+        currency: "USD"
     })
 
     return `<li>

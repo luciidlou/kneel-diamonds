@@ -64,24 +64,32 @@ export const getSizes = () => {
 export const getMetals = () => {
     return database.metals.map(metal => ({...metal}))
 }
+export const getTypes = () => {
+    return database.types.map(type => ({...type}))
+}
 export const getOrders = () => {
     return database.customOrders.map(order => ({...order}))
 }
-export const getTypes = () => {
-    return database.types.map(type => ({...type}))
+export const getOrderBuilder = () => {
+    // find a method to return a COPY of the object
+    return database.orderBuilder
 }
 
 export const setMetal = (id) => {
     database.orderBuilder.metalId = id
+    document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 export const setSize = (id) => {
     database.orderBuilder.sizeId = id
+    document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 export const setStyle = (id) => {
     database.orderBuilder.styleId = id
+    document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 export const setType = (id) => {
     database.orderBuilder.typeId = id
+    document.dispatchEvent(new CustomEvent("stateChanged"))
 }
 
 
