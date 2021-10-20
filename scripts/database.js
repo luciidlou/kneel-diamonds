@@ -49,14 +49,14 @@ export const getMetals = () => {
 export const getOrders = () => {
     return database.customOrders.map(order => ({...order}))
 }
-export const setStyle = (id) => {
-    database.orderBuilder.styleId = id
+export const setMetal = (id) => {
+    database.orderBuilder.metalId = id
 }
 export const setSize = (id) => {
     database.orderBuilder.sizeId = id
 }
-export const setMetal = (id) => {
-    database.orderBuilder.metalId = id
+export const setStyle = (id) => {
+    database.orderBuilder.styleId = id
 }
 
 
