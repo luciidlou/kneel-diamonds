@@ -1,5 +1,4 @@
-import { getOrderBuilder, getStyles, setStyle } from "./database.js"
-const orderBuilder = getOrderBuilder()
+import { getOrderBuilder, getStyles, setStyle } from "./dataAccess.js"
 const styles = getStyles()
 
 document.addEventListener(
@@ -9,9 +8,10 @@ document.addEventListener(
             setStyle(parseInt(event.target.value))
         }
     }
-)
-
-export const JewelryStyles = () => {
+    )
+    
+    export const JewelryStyles = () => {
+    const orderBuilder = getOrderBuilder()
     let html = "<ul>"
 
     // Use .map() for converting objects to <li> elements

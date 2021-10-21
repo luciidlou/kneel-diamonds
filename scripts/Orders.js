@@ -1,15 +1,17 @@
-import { getMetals, getOrders, getSizes, getStyles, getTypes } from "./database.js"
+import { getMetals, getOrders, getSizes, getStyles, getTypes } from "./dataAccess.js"
 
-const metals = getMetals()
-const sizes = getSizes()
-const styles = getStyles()
-const types = getTypes()
 
 
 // Remember that the function you pass to find() must return true/false
 
 
 const buildOrderListItem = (order) => {
+    const metals = getMetals()
+    const sizes = getSizes()
+    const styles = getStyles()
+    const types = getTypes()
+
+    
     const foundMetal = metals.find(
         (metal) => {
             return metal.id === order.metalId
