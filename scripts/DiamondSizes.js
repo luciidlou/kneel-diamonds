@@ -1,5 +1,4 @@
-import { getSizes, setSize, getOrderBuilder } from "./database.js"
-const orderBuilder = getOrderBuilder()
+import { getSizes, setSize, getOrderBuilder } from "./dataAccess.js"
 const sizes = getSizes()
 
 document.addEventListener(
@@ -9,9 +8,10 @@ document.addEventListener(
             setSize(parseInt(event.target.value))
         }
     }
-)
-
-export const DiamondSizes = () => {
+    )
+    
+    export const DiamondSizes = () => {
+    const orderBuilder = getOrderBuilder()
     let html = "<ul>"
 
     // Use .map() for converting objects to <li> elements

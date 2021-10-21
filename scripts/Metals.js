@@ -1,5 +1,4 @@
-import { getMetals, getOrderBuilder, setMetal } from "./database.js"
-const orderBuilder = getOrderBuilder()
+import { getMetals, getOrderBuilder, setMetal } from "./dataAccess.js"
 const metals = getMetals()
 
 document.addEventListener(
@@ -9,9 +8,10 @@ document.addEventListener(
             setMetal(parseInt(event.target.value))
         }
     }
-)
-
-export const Metals = () => {
+    )
+    
+    export const Metals = () => {
+    const orderBuilder = getOrderBuilder()
     let html = "<ul>"
     // This is how you have been converting objects to <li> elements
     for (const metal of metals) {
@@ -27,6 +27,7 @@ export const Metals = () => {
     }
 
     html += "</ul>"
+
     return html
 }
 
